@@ -8,12 +8,15 @@ const app = new Hono();
 
 app.get("/", (c) => {
   try {
-    const callingNumber = c.req.query("callingnumber") || c.req.query("caller");
+    const callingNumber =
+      c.req.query("callingnumber") ||
+      c.req.query("caller") ||
+      c.req.query("CallingNumber");
     if (!callingNumber) {
       return c.json(
         {
           error:
-            "Calling Number is required (use 'callingnumber' or 'caller' query parameter)",
+            "Calling Number is required (use 'callingnumber', 'caller', or 'CallingNumber' query parameter)",
         },
         { status: 400 }
       );
