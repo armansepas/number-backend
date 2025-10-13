@@ -17,6 +17,7 @@ app.get("/", (c) => {
         {
           error:
             "Calling Number is required (use 'callingnumber', 'caller', or 'CallingNumber' query parameter)",
+          status: false,
         },
         { status: 400 }
       );
@@ -25,6 +26,7 @@ app.get("/", (c) => {
     return c.json(
       {
         calledNumber: "09124166379",
+        status: true,
       },
       { status: 200 }
     );
@@ -32,6 +34,7 @@ app.get("/", (c) => {
     return c.json(
       {
         error: "Internal server error",
+        status: false,
       },
       { status: 500 }
     );
