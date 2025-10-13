@@ -5,6 +5,3 @@ services:
     build: .
     ports:
       - "9999:3000"
-    volumes:
-      - .:/app
-    command: bun start
