@@ -22,10 +22,12 @@ app.get("/", (c) => {
         { status: 400 }
       );
     }
+
+    const returningNumber = "9" + "09124166379";
     // Additional validation can be added here (e.g., regex for phone number format)
     return c.json(
       {
-        calledNumber: "09124166379",
+        calledNumber: returningNumber,
         status: true,
       },
       { status: 200 }
