@@ -6,6 +6,8 @@ const app = new Hono();
 //   return c.text('Hello Hono!')
 // })
 
+const generate9Number = (number: string) => "9" + number;
+
 app.get("/", (c) => {
 	try {
 		const callingNumber =
@@ -29,7 +31,7 @@ app.get("/", (c) => {
 		if (callingNumber == peymanNumber) {
 			return c.json(
 				{
-					calledNumber: mohandesKaniNumber,
+					calledNumber: generate9Number(mohandesKaniNumber),
 					status: true,
 				},
 				{ status: 200 }
