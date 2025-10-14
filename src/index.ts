@@ -24,7 +24,7 @@ app.get("/", (c) => {
 			);
 		}
 
-		const peymanNumber = "09124166379";
+		const peymanNumber = "09127154605";
 
 		const mohandesKaniNumber = "09127808487";
 

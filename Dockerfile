@@ -10,6 +10,6 @@ COPY src ./src
 
 RUN bun run build
 
-EXPOSE 3000
+EXPOSE 9999
 
 CMD ["bun", "run", "start"]
