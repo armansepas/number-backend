@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  app:
-    build: .
-    ports:
-      - "9999:3000"
+     app:
+          build: .
+          ports:
+               - "9999:9999"
