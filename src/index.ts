@@ -39,6 +39,15 @@ app.get("/", async (c) => {
 				{ status: 200 }
 			);
 		}
+		if (response.status === 404) {
+			return c.json(
+				{
+					error: "No calls found",
+					status: false,
+				},
+				{ status: 404 }
+			);
+		}
 	} catch (error) {
 		return c.json(
 			{
