@@ -8,7 +8,7 @@ const app = new Hono();
 
 const generate9Number = (number: string) => "9" + number;
 
-app.get("/", (c) => {
+app.get("/", async (c) => {
 	try {
 		const callingNumber =
 			c.req.query("callingnumber") ||
@@ -24,29 +24,21 @@ app.get("/", (c) => {
 			);
 		}
 
-		const peymanNumber = "09127154605";
+		const response = await fetch(
+			`https://backoffice.sep5.ir/api/v1/Voip/GetRecentCall?CallingNumber=${callingNumber}`
+		);
+		const data = await response.json();
 
-		const mohandesKaniNumber = "09127808487";
-
-		if (callingNumber == peymanNumber) {
+		console.log(response);
+		if (response.status === 200) {
 			return c.json(
 				{
-					calledNumber: generate9Number(mohandesKaniNumber),
+					calledNumber: data.calledNumber,
 					status: true,
 				},
 				{ status: 200 }
 			);
 		}
-
-		const returningNumber = "9" + "09124166379";
-		// Additional validation can be added here (e.g., regex for phone number format)
-		return c.json(
-			{
-				calledNumber: returningNumber,
-				status: true,
-			},
-			{ status: 200 }
-		);
 	} catch (error) {
 		return c.json(
 			{
