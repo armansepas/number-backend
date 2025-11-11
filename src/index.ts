@@ -25,7 +25,7 @@ app.get("/", async (c) => {
 		}
 
 		const response = await fetch(
-			`https://backoffice.sep5.ir/api/v1/Voip/GetRecentCall?CallingNumber=${callingNumber}`
+			`https://backoffice.yadak.com/api/v1/Voip/GetRecentCall?CallingNumber=${callingNumber}`
 		);
 		const data = await response.json();
 
